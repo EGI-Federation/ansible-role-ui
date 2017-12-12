@@ -1,0 +1,4 @@
+- name: Install UI package
+  package:
+    name: ui
+    state: latest
