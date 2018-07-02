@@ -1,2 +1,7 @@
 ---
 # tasks file for ansible-ui
+- name: Install metapackage
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{prerequisites[ansible_os_family | lower][ansible_distribution_major_version]}}"

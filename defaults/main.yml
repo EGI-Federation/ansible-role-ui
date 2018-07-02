@@ -1,2 +1,8 @@
 ---
 # defaults file for ansible-ui
+prerequisites:
+  redhat:
+    '7':
+      - ui
+    '6':
+      - 'emi-ui'

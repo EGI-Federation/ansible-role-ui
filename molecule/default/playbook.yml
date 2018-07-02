@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   roles:
-    - { role: EGI-Foundation.umd, release: 4, ca_erification: false }
-    - { role: EGI-Foundation.voms-client}
-    - { role: ansible-role-ui }
+    - { role: EGI-Foundation.umd, release: 4, ca_erification: false, tags: "umd" }
+    - { role: EGI-Foundation.voms-client, tags: "voms"}
+    - { role: ansible-role-ui, tags: "ui"}
