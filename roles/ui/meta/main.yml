@@ -1,3 +1,0 @@
----
-dependencies:
-  - { role: 'umd', crl_deploy: true }

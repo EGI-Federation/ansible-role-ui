@@ -1,5 +1,6 @@
 # Role Name
 
+[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui)
 <!-- A brief description of the role goes here. -->
 
 ## Requirements
