@@ -6,3 +6,13 @@ prerequisites:
       - ui
     '6':
       - 'emi-ui'
+configured_groups:
+  - name: gridusers
+    gid: 1005
+  - name: localusers
+    gid: 1006
+configured_users:
+  - name: griduser
+    uid: 2001
+    default_group: gridusers
+    shell: /bin/bash
