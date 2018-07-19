@@ -6,6 +6,12 @@
     state: present
   loop: "{{prerequisites[ansible_os_family | lower][ansible_distribution_major_version]}}"
 
+- name: Ensure extra packages as per spec
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
+
 - name: Ensure groups
   group:
     name: "{{ item.name }}"
@@ -29,3 +35,5 @@
     update_password: always
     shell: "{{ item.0['shell'] }}"
   loop: "{{ configured_users | zip(configured_groups)| list}}"
+
+- import_tasks: security-updates.yml
