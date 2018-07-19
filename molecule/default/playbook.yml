@@ -3,5 +3,5 @@
   hosts: all
   roles:
     - { role: EGI-Foundation.umd, release: 4, ca_verification: false, tags: "umd" }
-    # - { role: EGI-Foundation.voms-client, tags: "voms"}
+    - { role: EGI-Foundation.voms-client, tags: "voms"}
     - { role: ansible-role-ui, tags: "ui"}

@@ -1,3 +1,4 @@
+aria2
 ca-policy-egi-core
 davix-libs
 dcache-srmclient
@@ -42,6 +43,9 @@ lfc-devel
 lfc-libs
 lfc-perl
 lfc-python
+libdpm.so.1()(64bit)
+liblcgdm.so.1()(64bit)
+liblfc.so.1()(64bit)
 myproxy
 nordugrid-arc-client
 nordugrid-arc-plugins-gfal
@@ -49,3 +53,6 @@ nordugrid-arc-plugins-globus
 nordugrid-arc-plugins-needed
 nordugrid-arc-plugins-xrootd
 openldap-clients
+voms
+voms-clients-java
+xrootd-client

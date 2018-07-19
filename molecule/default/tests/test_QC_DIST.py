@@ -21,3 +21,5 @@ def packages():
 @pytest.mark.parametrize("pkg", packages())
 def test_packages(host, pkg):
     assert host.package(pkg).is_installed
+    assert host.package(pkg)
+    assert host.package(pkg).version
