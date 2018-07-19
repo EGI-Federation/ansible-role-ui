@@ -1,6 +1,6 @@
 ---
 - name: RHSA-2013:0568 | dbus
-  packge:
+  package:
     name: "{{ item }}"
     state: present
   loop:
