@@ -1,1 +1,3 @@
 __pycache__/
+.vscode
+molecule/default/pytestdebug.log
