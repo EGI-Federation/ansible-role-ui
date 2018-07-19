@@ -11,8 +11,3 @@ def test_hosts_file(host):
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
-
-
-# We should be able to ping the outside world
-def  test_connectivity(host):
-    assert host.interface("eth0").exists

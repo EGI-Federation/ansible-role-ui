@@ -28,11 +28,15 @@ script:
   - molecule verify -s $SCENARIO
   - cd $TRAVIS_BUILD_DIR
 after_success:
+# commit container
+# tag image
+# push to quay
 after_failure:
 before_deploy:
 deploy:
 after_deploy:
 after_script:
+  - molecule destroy
 # Add your notifications here.
 # Use travis encrypt to add api tokens.
 notifications:

@@ -6,6 +6,14 @@ prerequisites:
       - ui
     '6':
       - 'emi-ui'
+missed_dependencies:
+  redhat:
+    '7':
+      - fts-client
+      - xrood-client
+    '6':
+      - fts-client
+      - xrootd-client
 configured_groups:
   - name: gridusers
     gid: 1005
