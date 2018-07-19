@@ -10,7 +10,7 @@ missed_dependencies:
   redhat:
     '7':
       - fts-client
-      - xrood-client
+      - xrootd-client
     '6':
       - fts-client
       - xrootd-client
