@@ -1,0 +1,7 @@
+---
+- name: RHSA-2013:0568 | dbus
+  packge:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - dbus-glib-0.86-6.el6_4

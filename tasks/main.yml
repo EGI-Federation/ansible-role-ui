@@ -10,7 +10,7 @@
   package:
     name: "{{ item }}"
     state: present
-  loop: "missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
+  loop: "{{missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
 
 - name: Ensure groups
   group:
@@ -36,4 +36,4 @@
     shell: "{{ item.0['shell'] }}"
   loop: "{{ configured_users | zip(configured_groups)| list}}"
 
-- import_tasks: security-updates.yml
+- include_tasks: "security-updates-{{ ansible_os_family | lower }}-{{ ansible_distributio_major_version }}.yml"
