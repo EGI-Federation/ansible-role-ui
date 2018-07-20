@@ -1,7 +1,8 @@
 ---
-- name: RHSA-2013:0568 | dbus
-  package:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - dbus-glib-0.86-6.el6_4
+# This package is not available in CEntOS repos yet
+# - name: RHSA-2013:0568 | dbus
+#   package:
+#     name: "{{ item }}"
+#     state: present
+#   loop:
+#     - dbus-glib-0.86-6.el6_4
