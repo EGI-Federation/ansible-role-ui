@@ -11,3 +11,13 @@
   loop:
     - python-2.7.5-69.el7_5
     - python-libs-2.7.5-69.el7_5
+
+- name: RHSA-2018:2285 | yum
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - yum-plugin-ovl-1.1.31-46.el7_5
+    - yum-utils-1.1.31-46.el7_5
+    - yum-plugin-priorities-1.1.31-46.el7_5
+    - yum-plugin-fastestmirror-1.1.31-46.el7_5
