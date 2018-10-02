@@ -1,0 +1,13 @@
+---
+- name: CVE-2018-12020 | gnupg2
+  package:
+    name: gnupg2-2.0.22-5.el7_5
+    state: present
+
+- name: RHSA-2018:2123 | python
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - python-2.7.5-69.el7_5
+    - python-libs-2.7.5-69.el7_5

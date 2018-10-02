@@ -1,2 +1,39 @@
 ---
 # tasks file for ansible-ui
+- name: Install metapackage
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{prerequisites[ansible_os_family | lower][ansible_distribution_major_version]}}"
+
+- name: Ensure extra packages as per spec
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
+
+- name: Ensure groups
+  group:
+    name: "{{ item.name }}"
+    state: present
+    gid: "{{ item.gid }}"
+    system: false
+  loop: "{{configured_groups}}"
+
+- name: Add local users
+  user:
+    name: "{{ item.0['name'] }}"
+    create_home: true
+    ssh_key_bits: 2048
+    groups: "{{ item.1['name'] }}"
+    group: "{{ item.0['default_group'] }}"
+    state: present
+    system: false
+    ssh_key_type: rsa
+    ssh_key_comment: ansible-generated
+    ssh_key_file: .ssh/id_rsa
+    update_password: always
+    shell: "{{ item.0['shell'] }}"
+  loop: "{{ configured_users | zip(configured_groups)| list}}"
+
+- include_tasks: "security-updates-{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version }}.yml"

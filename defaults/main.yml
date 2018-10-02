@@ -1,2 +1,26 @@
 ---
 # defaults file for ansible-ui
+prerequisites:
+  redhat:
+    '7':
+      - ui
+    '6':
+      - 'emi-ui'
+missed_dependencies:
+  redhat:
+    '7':
+      - fts-client
+      - xrootd-client
+    '6':
+      - fts-client
+      - xrootd-client
+configured_groups:
+  - name: gridusers
+    gid: 1005
+  - name: localusers
+    gid: 1006
+configured_users:
+  - name: griduser
+    uid: 2001
+    default_group: gridusers
+    shell: /bin/bash

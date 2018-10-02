@@ -1,6 +1,7 @@
 # Role Name
 
-[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui)
+[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui) [![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui)
+
 <!-- A brief description of the role goes here. -->
 
 ## Requirements
@@ -10,6 +11,7 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 mentioned here.
 For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 -->
+No particular requirements are needed.
 
 ## Role Variables
 
@@ -21,9 +23,10 @@ A description of the settable variables for this role should go here, including 
 
 <!--
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
 Use https://galaxy.ansible.com/EGI-Foundation/ roles first if possible.
 -->
+  - [EGI-Foundation.umd](https://galaxy.ansible.com/EGI-Foundation/umd)
+  - [EGI-Fondation.VOMS-client](https://galaxy.ansible.com/EGI-Foundation/VOMS-client)
 
 ## Example Playbook
 
@@ -33,9 +36,12 @@ passed in as parameters) is always nice for users too:
 -->
 
 ```yaml
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  - name: Converge
+    hosts: all
+    roles:
+      - { role: EGI-Foundation.umd, release: 4, ca_verification: false, tags: "umd" }
+      - { role: EGI-Foundation.voms-client, tags: "voms"}
+      - { role: ansible-role-ui, tags: "ui"}
 ```
 
 ## License
