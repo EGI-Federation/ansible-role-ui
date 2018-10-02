@@ -11,3 +11,13 @@ def test_hosts_file(host):
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
+
+def test_griduser(host):
+    u = host.user('griduser')
+
+    assert u.name == 'griduser'
+    assert u.group == 'griduser'
+
+    g = host.group('griduser')
+
+    assert g.exists

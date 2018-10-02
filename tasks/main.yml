@@ -12,6 +12,13 @@
     state: present
   loop: "{{missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
 
+- name: Ensure optional packages if option is selected
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ optional_packages[ansible_os_family |lower][ansible_distribution_major_version] }}"
+  when: install_optional_packages
+
 - name: Ensure groups
   group:
     name: "{{ item.name }}"

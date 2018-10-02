@@ -14,6 +14,13 @@ missed_dependencies:
     '6':
       - fts-client
       - xrootd-client
+install_optional_packages: True
+optional_packages:
+  redhat:
+    '7':
+      - openssh-clients
+    '6':
+      - openssh-clients
 configured_groups:
   - name: gridusers
     gid: 1005
