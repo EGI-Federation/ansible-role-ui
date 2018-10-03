@@ -19,5 +19,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 # repoquery --requires
+# HT 
 def test_world_writable_files(host):
-    assert True
+    assert check_output("find /tmp -type d \( -perm -g+w -or -perm -o+w \) -exec ls -adl {} \; |grep -v tmp") == ''

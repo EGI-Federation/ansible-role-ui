@@ -16,7 +16,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
   ("gnupg2", "2.0.22-5.el7_5"),
   ("python", "2.7.5-69.el7_5"),
   ("python-libs", "2.7.5-69.el7_5"),
-  ("bind-license", "61.el7_5.1"),
   ("yum-utils", "1.1.31-46.el7_5"),
   ("yum-plugin-ovl", "1.1.31-46.el7_5"),
   ("yum-plugin-priorities", "1.1.31-46.el7_5"),

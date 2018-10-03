@@ -19,6 +19,13 @@
   loop: "{{ optional_packages[ansible_os_family |lower][ansible_distribution_major_version] }}"
   when: install_optional_packages
 
+- name: Ensure weak ciphers are not included by default
+  replace:
+    path: /etc/ssh/ssh_config
+    regexp: '^\#?\s+Ciphers.*$'
+    replace: Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+    validate: ssh -f %s -V
+
 - name: Ensure groups
   group:
     name: "{{ item.name }}"
