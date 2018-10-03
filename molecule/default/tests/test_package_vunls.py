@@ -1,7 +1,7 @@
 import os
 import testinfra.utils.ansible_runner
 import pytest
-from distutils.version import LooseVersion, StrictVersion
+from distutils.version import LooseVersion  # , StrictVersion
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 # The vulnerability scanner on Quay gives us intelligence on which
@@ -9,7 +9,9 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 # We therefore keep track of those and test to see whether the installed
 # version is greater than the one reported as fixing the vulnerability
 
-# Watch the CVEs raised at 
+# Watch the CVEs raised at https://quay.io/repository/egi/ui?tab=tags
+
+
 @pytest.mark.parametrize('name,version', [
   ("gnupg2", "2.0.22-5.el7_5"),
   ("python", "2.7.5-69.el7_5"),

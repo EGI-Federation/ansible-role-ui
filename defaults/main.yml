@@ -14,7 +14,7 @@ missed_dependencies:
     '6':
       - fts-client
       - xrootd-client
-install_optional_packages: True
+install_optional_packages: true
 optional_packages:
   redhat:
     '7':
