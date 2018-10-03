@@ -8,15 +8,14 @@ services:
 env:
   global:
     - md_ignore: R1
-    - secure: CqXJOwIKK61rVmS3iYi6S6e6JlgrmUXi5ZXtUtOwf2sCyr6oUuoq1MjyM1SQHgXuaIxsDKYkKayePqJx74pCOEZEF0s3xjKN5bVSgQ9vLVjqJY/zzbJYJOwPc2n+z8P7pPDmnkeGbLL2krvU7Sd8BvWXe1L7nfgUfMoVt1g6Fu+PLZA8Otzen/DRfR3bgIAjATwA5LlOucvpjYwdQ0RhMmSwzvS7Lb3bPNyM0FzFZpPLx3qouqsxyUD/ZCGVFkJ7FPvYmVAZLVrwgHPclQ8kYw4vFM5F5G+cMVQFZ3V7vPuLj68LIsdygE6yCysMDpvQzOMMaMPYLmNw9PCH5eIlaFW2mkw45Wh7BMmSkrXMmi3FZ9DFRD/ATR7g7Bu4v4/Q1pmc303MOA292gKlcK+o2WivRIsR4XYjS4wdbuNApd9B00OAaqqwhcAZq5L2l0BPiSYv4dTsn60VinudMDqMSDRnRAGZ3mVUtONuFo26dNuyHiPRzPNvRfYdfSzjlc9wtUxlXRZhygITpBmR7Dc9oAaduoRsAzBnJUZua8ygrxLeSQaSSvQ2/bNBFIj9sG4hrYCDSulpi5XpqmT2srsSGJ+WxC3mJPiToaPtwjCAxYBFTwymDl7JPk9xlXCPxLHxFnAVV3rRZKTejb6MJeyFumZjKStOpjPa0vteukyvgZs=
+    - secure: NVWn9ha/rJWIhX9Xadrsv1rJAvlFW+iUp/1vovv7+3XIn2NwRdhYkWX8mSw5NXuEHlEPVh4AZcNUIQPqLObnLrpz8aiR3Gq6dVrFD1HuhhQAOb+cS0cOSk4jEIxMHdq3OnkeZzCU9fONgA0NwOPQEbHOho92Y8wi9WDptfuA0HKi1f3kVJWdlERF9la8p5PkFWrqbdgbUc5SnCXgRjDysatVuu4fuN+a/z+GZU4Wi2dvbMfKoOTesmKoMx3ne1/LwN2Xq9ZdmmJfXmuxgV5ln7QOfFxSnKsaXPC6nxDvqm2T9nVz9cumTQum+c7Y4Q6yb9Ouojl/WmowA+NkBra3qu+adGU2hkB5sVeK6WOBYEm4epu9rHzTYZeq2PVPm/4lAB+4wODreE5G9g0X7TH6E4xyVafBP6VTyutAqqjN4k1BPRbQAlrA7TBPtIaBFEpDvSecssC13aV5gpHfwVtzXwh3mkuISINLawLEKffZd/W/nb8lAxjL4Nx956AN+n9OafsHyBWIwRnkdWIt0Yjl9bLWmwlYxicvLTOCEJulu6LPV+NylQSSDHIkLO8T6AWQf1/8dpY/2/TWqiQ9+qRxmmF+yf3hhRbWfJNMsIuWoISqYtPU0XKU2KPWCvQvbV23wJDGfaqBTMNVQZA8NHbiYgSr8U+K0deYojY+L+Rucbk=
   matrix:
     - SCENARIO='default'
 before_install:
 install:
   - pip install -r requirements.txt
 before_script:
-  - 'for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore
-  $file ; done'
+  - for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore $file ; done
 script:
   - molecule lint -s $SCENARIO
   - molecule dependency -s $SCENARIO
