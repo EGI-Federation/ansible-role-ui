@@ -21,3 +21,10 @@ def test_griduser(host):
     g = host.group('gridusers')
 
     assert g.exists
+
+
+def test_ssh_config(host):
+    if (host.package('openssh-clients').is_installed):
+        ssh_config_file = host.file('/etc/ssh/ssh_config')
+        assert not ssh_config_file.contains('arcfour')
+        assert ssh_config_file.contains('Protocol 2')
