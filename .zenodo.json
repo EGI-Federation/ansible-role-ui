@@ -10,7 +10,7 @@
         "grid", 
         "middleware"
     ], 
-    "version": "v0.1.0", 
+    "version": "v0.1.1", 
     "upload_type": "software", 
     "communities": [
         {
@@ -33,20 +33,13 @@
     "related_identifiers": [
         {
             "scheme": "url", 
-<<<<<<< HEAD
+
             "identifier": "https://github.com/EGI-Foundation/ansible-role-ui/tree/v0.1.1", 
-=======
-            "identifier": "https://github.com/EGI-Foundation/ansible-role-ui/tree/v0.1.0", 
->>>>>>> 9ef0bb3b7338c54cfc57f740a4f2556aef763c1d
             "relation": "isSupplementTo"
         }, 
         {
             "scheme": "doi", 
-<<<<<<< HEAD
             "identifier": "10.5281/zenodo.1442700", 
-=======
-            "identifier": "10.5281/zenodo.1442699", 
->>>>>>> 9ef0bb3b7338c54cfc57f740a4f2556aef763c1d
             "relation": "isVersionOf"
         }
     ]
