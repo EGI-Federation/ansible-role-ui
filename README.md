@@ -2,26 +2,23 @@
 
 [![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui) [![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1442700.svg)](https://doi.org/10.5281/zenodo.1442700)
 
-
-
 This role provisions a UMD User Interface. It contains the client libraries of the middleware distribution, for interacting with the various infrastructure services, and is based on the [VOMS-client role](https://galaxy.ansible.com/egi-foundation/voms-client).
 
 ## Using
 
 This repository is kept under continuous integration. The role has been expressed into the [UI container](https://quay.io/repository/egi/ui) during the CI phase and can be immediately re-used, or can be applied to base images of your favourite platform - bare metal, cloud or local vms.
-A generic `griduser` has been created for you :smiley:. 
+A generic `griduser` has been created for you :smiley:.
 See the example playbook below.
 
 ### Docker
 
-Running the user interface in a Docker container can be done interactively, or by starting the container and `exec`ing commands in it: 
+Running the user interface in a Docker container can be done interactively, or by starting the container and `exec`ing commands in it:
 
   1. First pull the container image: `docker pull quay.io/egi/ui`
   1. Don't forget to mount a volume with your user credentials : `-v $HOME/.globus:/home/griduser/.globus`
   1. Run interactively: `docker run -u griduser -ti --rm --name ui -v $HOME/.globus:/home/griduser/.globus quay.io/egi/ui /bin/bash/` (enter the container and do gridcloud things)
   1. Run detached: `docker run -d -t --rm --name ui quay.io/egi/ui /bin/bash -c 'while true ; do sleep 1000 ; done'`
      1. run things in it: `docker exec ui voms-proxy-init`
-
 
 ## Requirements
 
