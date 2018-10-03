@@ -16,8 +16,8 @@ def test_griduser(host):
     u = host.user('griduser')
 
     assert u.name == 'griduser'
-    assert u.group == 'griduser'
+    assert u.group == 'gridusers'
 
-    g = host.group('griduser')
+    g = host.group('gridusers')
 
     assert g.exists
