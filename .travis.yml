@@ -27,7 +27,7 @@ script:
 after_success:
   - docker commit ui-centos7 quay.io/egi/ui:centos7
   - docker commit ui-centos6 quay.io/egi/ui:centos6
-  - docker login -u="egi+packerbot" -p="$QUAY_PASSWORD" quay.io
+  - docker login -u="egi+packerbot" -p=${QUAY_PASSWORD} quay.io
   - docker push quay.io/egi/ui:centos6
   - docker push quay.io/egi/ui:centos7
 after_failure:
