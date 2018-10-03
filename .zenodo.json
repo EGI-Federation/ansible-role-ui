@@ -33,12 +33,12 @@
     "related_identifiers": [
         {
             "scheme": "url", 
-            "identifier": "https://github.com/EGI-Foundation/ansible-role-ui/tree/v0.1.0", 
+            "identifier": "https://github.com/EGI-Foundation/ansible-role-ui/tree/v0.1.1", 
             "relation": "isSupplementTo"
         }, 
         {
             "scheme": "doi", 
-            "identifier": "10.5281/zenodo.1442699", 
+            "identifier": "10.5281/zenodo.1442700", 
             "relation": "isVersionOf"
         }
     ]
