@@ -8,15 +8,14 @@ services:
 env:
   global:
     - md_ignore: R1
-    - secure: CqXJOwIKK61rVmS3iYi6S6e6JlgrmUXi5ZXtUtOwf2sCyr6oUuoq1MjyM1SQHgXuaIxsDKYkKayePqJx74pCOEZEF0s3xjKN5bVSgQ9vLVjqJY/zzbJYJOwPc2n+z8P7pPDmnkeGbLL2krvU7Sd8BvWXe1L7nfgUfMoVt1g6Fu+PLZA8Otzen/DRfR3bgIAjATwA5LlOucvpjYwdQ0RhMmSwzvS7Lb3bPNyM0FzFZpPLx3qouqsxyUD/ZCGVFkJ7FPvYmVAZLVrwgHPclQ8kYw4vFM5F5G+cMVQFZ3V7vPuLj68LIsdygE6yCysMDpvQzOMMaMPYLmNw9PCH5eIlaFW2mkw45Wh7BMmSkrXMmi3FZ9DFRD/ATR7g7Bu4v4/Q1pmc303MOA292gKlcK+o2WivRIsR4XYjS4wdbuNApd9B00OAaqqwhcAZq5L2l0BPiSYv4dTsn60VinudMDqMSDRnRAGZ3mVUtONuFo26dNuyHiPRzPNvRfYdfSzjlc9wtUxlXRZhygITpBmR7Dc9oAaduoRsAzBnJUZua8ygrxLeSQaSSvQ2/bNBFIj9sG4hrYCDSulpi5XpqmT2srsSGJ+WxC3mJPiToaPtwjCAxYBFTwymDl7JPk9xlXCPxLHxFnAVV3rRZKTejb6MJeyFumZjKStOpjPa0vteukyvgZs=
+    - secure: LcBq5R5DcX7Vtdiqw3VRRHNpkf0+iuQxa2Rg1HaFI+5n3A3fAXOPezoONRNqTLUDRoVpQ6DwesVaSm2TgzytopqDzmXDg06ccuY/op9vXYau791/XGkGPH6gZR46Cv4paqYE6y/XgYcPjIC2J+gAOzjpjON7KC1Gnaf+mYYhgeh+RYxhoQBO5fTczJSgVPzRL5YPrPCr5lZ6UJp+agoSVAKfZjSMRESiWIA4iaC7GPDvnR6eK2kR1sXzuOR0gBQMyBO0Ole3SRWw+QpDnvHl/g8uIF8J+kHXxxSVYS4EXWstaN7+lDd7dF+stwjHsfLc7UTAoiGpcsJhiqKQ3UBeVbkaicpEnyYDNeTOfgI0UbYT8D/DSZ0fVpPA0mTadA3J0YGsPOpdf8UNBEOUGxmTqG7EPou7dkFI7eVEdLiyQ/Tuz45oSJp3HqGFtiFWiMJEJzXIBXEKcViFEio1F9Slemwg8Yp75IBefs9YIV/+0tHXrIVPULuSxpaflSVIkol/wdmQlkie1we7IeYBUfjB86YJGsF/kiRi5meoiJI8IpHWAkTKGPvFWgqiVmGeyZHueyxKi73IeqBrgS3VvUgi0Xbq2QlsDgjk+zASTJ7KUtHaOHr0yuTbvElbb/wsv5ojSpDvUEp3smrrsVcCa1RyE1CqsBvVbYiZlv1d5dqXsV8=
   matrix:
     - SCENARIO='default'
 before_install:
 install:
   - pip install -r requirements.txt
 before_script:
-  - 'for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore
-  $file ; done'
+  - for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore $file ; done
 script:
   - molecule lint -s $SCENARIO
   - molecule dependency -s $SCENARIO
@@ -26,9 +25,11 @@ script:
   - molecule verify -s $SCENARIO
   - cd $TRAVIS_BUILD_DIR
 after_success:
-  - docker commit `docker ps |grep "centos:7" |awk {'print $1'}` quay.io/egi/ui
-  - docker login -u="egi+packerbot" -p="$QUAY_PASSWORD" quay.io
-  - docker push quay.io/egi/ui
+  - docker commit ui-centos7 quay.io/egi/ui:centos7
+  - docker commit ui-centos6 quay.io/egi/ui:centos6
+  - docker login -u="egi+packerbot" -p=${QUAY_PASSWORD} quay.io
+  - docker push quay.io/egi/ui:centos6
+  - docker push quay.io/egi/ui:centos7
 after_failure:
 before_deploy:
 deploy:

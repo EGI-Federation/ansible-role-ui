@@ -1,39 +1,41 @@
-# Role Name
+# User Interface Role
 
-[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui) [![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui)
+[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui) [![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1442700.svg)](https://doi.org/10.5281/zenodo.1442700)
 
-<!-- A brief description of the role goes here. -->
+This role provisions a UMD User Interface. It contains the client libraries of the middleware distribution, for interacting with the various infrastructure services, and is based on the [VOMS-client role](https://galaxy.ansible.com/egi-foundation/voms-client).
+
+## Using
+
+This repository is kept under continuous integration. The role has been expressed into the [UI container](https://quay.io/repository/egi/ui) during the CI phase and can be immediately re-used, or can be applied to base images of your favourite platform - bare metal, cloud or local vms.
+A generic `griduser` has been created for you :smiley:.
+See the example playbook below.
+
+### Docker
+
+Running the user interface in a Docker container can be done interactively, or by starting the container and `exec`ing commands in it:
+
+  1. First pull the container image: `docker pull quay.io/egi/ui`
+  1. Don't forget to mount a volume with your user credentials : `-v $HOME/.globus:/home/griduser/.globus`
+  1. Run interactively: `docker run -u griduser -ti --rm --name ui -v $HOME/.globus:/home/griduser/.globus quay.io/egi/ui /bin/bash/` (enter the container and do gridcloud things)
+  1. Run detached: `docker run -d -t --rm --name ui quay.io/egi/ui /bin/bash -c 'while true ; do sleep 1000 ; done'`
+     1. run things in it: `docker exec ui voms-proxy-init`
 
 ## Requirements
 
-<!--
-Any pre-requisites that may not be covered by Ansible itself or the role should be
-mentioned here.
-For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
--->
-No particular requirements are needed.
+No particular requirements are needed, but a typical playbook will need the [VOMS-client role](https://galaxy.ansible.com/egi-foundation/voms-client)
 
 ## Role Variables
 
-<!--
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
--->
+See `defaults/main.yml`
 
 ## Dependencies
 
-<!--
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-Use https://galaxy.ansible.com/EGI-Foundation/ roles first if possible.
--->
+
   - [EGI-Foundation.umd](https://galaxy.ansible.com/EGI-Foundation/umd)
   - [EGI-Fondation.VOMS-client](https://galaxy.ansible.com/EGI-Foundation/VOMS-client)
 
 ## Example Playbook
 
-<!--
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
--->
 
 ```yaml
   - name: Converge
@@ -50,6 +52,11 @@ Apache-2.0
 
 ## Author Information
 
-<!--
-Add the relevant contributors
--->
+- Pablo Orviz @orviz
+- Bruce Becker @brucellino
+
+## Citing
+
+If you use this role at your site and publish your infrastructure, please cite as :
+
+Bruce Becker, & Pablo Orviz. (2018, October 2). EGI-Foundation/ansible-role-ui: Ansible Role: UMD user interface (v0.1.0) (Version v0.1.0). Zenodo. http://doi.org/10.5281/zenodo.1442700
