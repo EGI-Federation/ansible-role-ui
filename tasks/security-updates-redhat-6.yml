@@ -1,8 +1,29 @@
 ---
 # This package is not available in CEntOS repos yet
-# - name: RHSA-2013:0568 | dbus
-#   package:
-#     name: "{{ item }}"
-#     state: present
-#   loop:
-#     - dbus-glib-0.86-6.el6_4
+- name: RHSA-2013:0568 | dbus
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - dbus-glib-0.86-6.el6_4
+  ignore_errors: true
+
+- name: RHSA-2018:2898 | nss
+  package:
+    name: "{{ item }}"
+    update_cache: true
+    state: present
+  loop:
+    - nss-sysinit-3.36.0-9.el6_10
+    - nss-3.36.0-9.el6_10
+    - nss-tools-3.36.0-9.el6_10
+
+- name: RHSA-2018:2943 | java-openjdk
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - java-1.8.0-openjdk-headless-1.8.0.191.b12-0.el6_10
+    - java-1.8.0-openjdk-1.8.0.191.b12-0.el6_10
