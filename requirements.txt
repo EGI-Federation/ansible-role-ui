@@ -2,3 +2,4 @@ molecule
 pymarkdownlint
 docker
 jmespath
+pytest-xdist
