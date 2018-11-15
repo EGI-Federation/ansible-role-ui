@@ -21,6 +21,7 @@ scenario:
   name: default
 verifier:
   name: testinfra
+  # Parallel testing only possible with xdist
   options:
     n: 10
   lint:

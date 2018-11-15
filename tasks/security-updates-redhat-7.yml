@@ -43,3 +43,46 @@
     - nss-sysinit-3.36.0-7.el7_5
     - nss-3.36.0-7.el7_5
     - nss-tools-3.36.0-7.el7_5
+
+- name: RHSA-2018:2570 | bind-license
+  package:
+    name: bind-license-9.9.4-61.el7_5.1
+    state: present
+    update_cache: true
+
+- name: RHSA-2018:3324 | fuse
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - fuse.x86_64-9.2-11.el7
+    - fuse-libs.x86_64-9.2-11.el7
+  ignore_errors: true
+
+- name: RHSA-2018:3221 | openssl
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - openssl-1.0.2k-16.el7
+    - openssl-libs-1.0.2k-16.el7
+  ignore_errors: yes
+
+- name: RHSA-2018:3092 | glibc
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - glibc-2.17-260.el7
+    - glibc-common-2.17-260.el7
+  ignore_errors: true
+
+- name: RHSA-2018:3050 | gnutls
+  package:
+    name: gnutls-3.3.29-8.el7
+    state: present
+    update_cache: true
+  ignore_errors: true

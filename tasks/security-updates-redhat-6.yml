@@ -27,3 +27,13 @@
   loop:
     - java-1.8.0-openjdk-headless-1.8.0.191.b12-0.el6_10
     - java-1.8.0-openjdk-1.8.0.191.b12-0.el6_10
+
+- name: RHSA-2018:2284 | yum
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - yum-plugin-fastestmirror-1.1.30-41.el6
+    - yum-plugin-priorities-1.1.30-41.el6
+    - yum-plugin-ovl-1.1.30-41.el6
