@@ -23,6 +23,6 @@ verifier:
   name: testinfra
   # Parallel testing only possible with xdist
   options:
-    n: 10
+    n: 2
   lint:
     name: flake8
