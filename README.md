@@ -1,6 +1,6 @@
 # User Interface Role
 
-[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-ui.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-ui) [![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1442700.svg)](https://doi.org/10.5281/zenodo.1442700)
+[![Docker Repository on Quay](https://quay.io/repository/egi/ui/status "Docker Repository on Quay")](https://quay.io/repository/egi/ui) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1442700.svg)](https://doi.org/10.5281/zenodo.1442700)
 
 This role provisions a UMD User Interface. It contains the client libraries of the middleware distribution, for interacting with the various infrastructure services, and is based on the [VOMS-client role](https://galaxy.ansible.com/egi-foundation/voms-client).
 
@@ -59,4 +59,4 @@ Apache-2.0
 
 If you use this role at your site and publish your infrastructure, please cite as :
 
-Bruce Becker, & Pablo Orviz. (2018, October 2). EGI-Foundation/ansible-role-ui: Ansible Role: UMD user interface (v0.1.0) (Version v0.1.0). Zenodo. http://doi.org/10.5281/zenodo.1442700
+Bruce Becker, & Pablo Orviz. (2018, October 2). EGI-Federation/ansible-role-ui: Ansible Role: UMD user interface (v0.1.0) (Version v0.1.0). Zenodo. http://doi.org/10.5281/zenodo.1442700
