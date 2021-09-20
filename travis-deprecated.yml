@@ -8,7 +8,7 @@ services:
 env:
   global:
     - md_ignore: R1
-    - secure: LcBq5R5DcX7Vtdiqw3VRRHNpkf0+iuQxa2Rg1HaFI+5n3A3fAXOPezoONRNqTLUDRoVpQ6DwesVaSm2TgzytopqDzmXDg06ccuY/op9vXYau791/XGkGPH6gZR46Cv4paqYE6y/XgYcPjIC2J+gAOzjpjON7KC1Gnaf+mYYhgeh+RYxhoQBO5fTczJSgVPzRL5YPrPCr5lZ6UJp+agoSVAKfZjSMRESiWIA4iaC7GPDvnR6eK2kR1sXzuOR0gBQMyBO0Ole3SRWw+QpDnvHl/g8uIF8J+kHXxxSVYS4EXWstaN7+lDd7dF+stwjHsfLc7UTAoiGpcsJhiqKQ3UBeVbkaicpEnyYDNeTOfgI0UbYT8D/DSZ0fVpPA0mTadA3J0YGsPOpdf8UNBEOUGxmTqG7EPou7dkFI7eVEdLiyQ/Tuz45oSJp3HqGFtiFWiMJEJzXIBXEKcViFEio1F9Slemwg8Yp75IBefs9YIV/+0tHXrIVPULuSxpaflSVIkol/wdmQlkie1we7IeYBUfjB86YJGsF/kiRi5meoiJI8IpHWAkTKGPvFWgqiVmGeyZHueyxKi73IeqBrgS3VvUgi0Xbq2QlsDgjk+zASTJ7KUtHaOHr0yuTbvElbb/wsv5ojSpDvUEp3smrrsVcCa1RyE1CqsBvVbYiZlv1d5dqXsV8=
+    - secure:
   matrix:
     - SCENARIO='default'
 before_install:
