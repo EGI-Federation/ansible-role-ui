@@ -50,4 +50,3 @@
     shell: "{{ item.0['shell'] }}"
   loop: "{{ configured_users | zip(configured_groups)| list}}"
 
-- include_tasks: "security-updates-{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version }}.yml"
