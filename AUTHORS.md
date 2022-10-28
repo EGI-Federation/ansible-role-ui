@@ -1,9 +1,12 @@
-# Authors
+## Maintainers
 
-<!--
-Add authors to the codebase one by one
-Use the format :
-Firstname Lastname <email@addr.ess>
--->
+Baptiste Grenier <baptiste.grenier@egi.eu>
+
+## Original Authors
+
 - Pablo Orviz @orviz
 - Bruce Becker @brucellino
+
+## Contributors
+
+See https://github.com/EGI-Federation/<REPOSITORY>/graphs/contributors
