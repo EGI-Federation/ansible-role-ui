@@ -1,5 +1,7 @@
 import os
-import testinfra.utils.ansible_runner
+
+import testinfra
+
 # See http://egi-qc.github.io/#SECURITY
 # World-writable files and directories are dangerous since they allows anyone
 # to modify them, several vulnerabilities in recent years have been due to
@@ -15,10 +17,15 @@ import testinfra.utils.ansible_runner
 #  Logs and config files must not be world-writable.
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
+    os.environ["MOLECULE_INVENTORY_FILE"]
+).get_hosts("all")
 
 
 # repoquery --requires
-# HT 
+# HT
 def test_world_writable_files(host):
-    assert check_output("find /tmp -type d \( -perm -g+w -or -perm -o+w \) -exec ls -adl {} \; |grep -v tmp") == ''
+    cmd = (
+        "find /tmp -type d ( -perm -g+w -or -perm -o+w ) "
+        + "-exec ls -adl {} ; |grep -v tmp"
+    )
+    assert testinfra.check_output(cmd) == ""

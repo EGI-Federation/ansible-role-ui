@@ -1,6 +1,8 @@
 import os
-import testinfra.utils.ansible_runner
+
 import pytest
+import testinfra.utils.ansible_runner
+
 # See http://egi-qc.github.io/#INSTALLATION
 # Packages must install without issues in a machine configured without any
 # external repositories (valid repositories are the standard OS repo, UMD repo
@@ -11,7 +13,8 @@ import pytest
 # signed for Debian-based distros)
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-  os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
+    os.environ["MOLECULE_INVENTORY_FILE"]
+).get_hosts("all")
 
 
 def packages():

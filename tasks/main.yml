@@ -1,33 +1,33 @@
 ---
 # tasks file for ansible-ui
 - name: Install metapackage
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{prerequisites[ansible_os_family | lower][ansible_distribution_major_version]}}"
 
 - name: Ensure extra packages as per spec
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{missed_dependencies[ansible_os_family |lower][ansible_distribution_major_version] }}"
 
 - name: Ensure optional packages if option is selected
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{ optional_packages[ansible_os_family |lower][ansible_distribution_major_version] }}"
   when: install_optional_packages
 
 - name: Ensure weak ciphers are not included by default
-  replace:
+  ansible.builtin.replace:
     path: /etc/ssh/ssh_config
     regexp: '^\#?\s+Ciphers.*$'
     replace: Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
     validate: ssh -f %s -V
 
 - name: Ensure groups
-  group:
+  ansible.builtin.group:
     name: "{{ item.name }}"
     state: present
     gid: "{{ item.gid }}"
@@ -35,7 +35,7 @@
   loop: "{{configured_groups}}"
 
 - name: Add local users
-  user:
+  ansible.builtin.user:
     name: "{{ item.0['name'] }}"
     create_home: true
     ssh_key_bits: 2048
@@ -49,4 +49,3 @@
     update_password: always
     shell: "{{ item.0['shell'] }}"
   loop: "{{ configured_users | zip(configured_groups)| list}}"
-

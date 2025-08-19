@@ -1,5 +1,5 @@
 ---
-- src: https://github.com/EGI-Foundation/ansible-role-umd
+- src: https://github.com/EGI-Federation/ansible-role-umd
   name: EGI-Foundation.umd
-- src: https://github.com/EGI-Foundation/ansible-role-VOMS-clients
-  name: EGI-Foundation.voms-clients
+- src: https://github.com/EGI-Federation/ansible-role-VOMS-client
+  name: EGI-Foundation.voms-client

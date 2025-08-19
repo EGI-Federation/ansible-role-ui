@@ -1,16 +1,18 @@
-*******
-Install
-*******
+#########
+ Install
+#########
 
-Requirements
-============
+**************
+ Requirements
+**************
 
-* Docker Engine
-* docker-py
+-  Docker Engine
+-  docker-py
 
-Install
-=======
+*********
+ Install
+*********
 
-.. code-block:: bash
+.. code:: bash
 
-  $ sudo pip install docker-py
+   $ sudo pip install docker-py

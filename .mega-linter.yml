@@ -1,0 +1,24 @@
+---
+# MegaLinter Configuration for the EGI User Interface Ansible role
+# See https://megalinter.io/v8/config-file/ for details
+
+# This configuration is enabled locally via pre-commit hook.
+# see pre-commit-config.yaml
+
+# Apply fixes found by the linter. See https://megalinter.io/v8/config-apply-fixes/
+APPLY_FIXES: all
+FLAVOR_SUGGESTIONS: true
+ENABLE_LINTERS:
+  - ANSIBLE_ANSIBLE_LINT
+  - MARKDOWN_MARKDOWN_LINK_CHECK
+  - MARKDOWN_MARKDOWNLINT
+  - PYTHON_BLACK
+  - PYTHON_FLAKE8
+  # - REPOSITORY_CHECKOV
+  # - REPOSITORY_KICS
+  - SPELL_CSPELL
+  - DOCKERFILE_HADOLINT
+  - JSON_PRETTIER
+DISABLE_LINTERS:
+  - YAML_V8R
+DOCKERFILE_HADOLINT_FILTER_REGEX_EXCLUDE: .*j2

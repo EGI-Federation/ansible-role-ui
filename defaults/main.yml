@@ -2,24 +2,24 @@
 # defaults file for ansible-ui
 prerequisites:
   redhat:
-    '7':
+    7:
       - ui
-    '6':
-      - 'emi-ui'
+    6:
+      - emi-ui
 missed_dependencies:
   redhat:
-    '7':
+    7:
       - fts-client
       - xrootd-client
-    '6':
+    6:
       - fts-client
       - xrootd-client
 install_optional_packages: true
 optional_packages:
   redhat:
-    '7':
+    7:
       - openssh-clients
-    '6':
+    6:
       - openssh-clients
 configured_groups:
   - name: gridusers

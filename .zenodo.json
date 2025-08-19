@@ -1,51 +1,45 @@
 {
-    "license": "Apache-2.0",
-    "description": "<p>User Interface Role</p>\n\n<p>&nbsp;</p>\n\n<p>This role provisions a UMD User Interface. It contains the client libraries of the middleware distribution, for interacting with the various infrastructure services, and is based on the <a href=\"https://galaxy.ansible.com/egi-foundation/voms-client\">VOMS-client role</a>.</p>\n\n<p>Using</p>\n\n<p>This repository is kept under continuous integration. The role has been expressed into the <a href=\"https://quay.io/repository/egi/ui\">UI container</a> during the CI phase and can be immediately re-used, or can be applied to base images of your favourite platform - bare metal, cloud or local vms. A generic <code>griduser</code> has been created for you :smiley:. See the example playbook below.</p>\n\n<p>Docker</p>\n\n<p>Running the user interface in a Docker container can be done interactively, or by starting the container and <code>exec</code>ing commands in it:</p>\n\n<ol>\n\t<li>First pull the container image: <code>docker pull quay.io/egi/ui</code></li>\n\t<li>Don&#39;t forget to mount a volume with your user credentials : <code>-v $HOME/.globus:/home/griduser/.globus</code></li>\n\t<li>Run interactively: <code>docker run -u griduser -ti --rm --name ui -v $HOME/.globus:/home/griduser/.globus quay.io/egi/ui /bin/bash/</code> (enter the container and do gridcloud things)</li>\n\t<li>Run detached: <code>docker run -d -t --rm --name ui quay.io/egi/ui /bin/bash -c &#39;while true ; do sleep 1000 ; done&#39;</code>\n\t<ol>\n\t\t<li>run things in it: <code>docker exec ui voms-proxy-init</code></li>\n\t</ol>\n\t</li>\n</ol>\n\n<p>Requirements</p>\n\n<p>No particular requirements are needed, but a typical playbook will need the <a href=\"https://galaxy.ansible.com/egi-foundation/voms-client\">VOMS-client role</a></p>\n\n<p>Role Variables</p>\n\n<p>See <code>defaults/main.yml</code></p>\n\n<p>Dependencies</p>\n\n<ul>\n\t<li><a href=\"https://galaxy.ansible.com/EGI-Foundation/umd\">EGI-Foundation.umd</a></li>\n\t<li><a href=\"https://galaxy.ansible.com/EGI-Foundation/VOMS-client\">EGI-Fondation.VOMS-client</a></li>\n</ul>\n\n<p>Example Playbook</p>\n\n<pre><code>  - name: Converge\n    hosts: all\n    roles:\n      - { role: EGI-Foundation.umd, release: 4, ca_verification: false, tags: \"umd\" }\n      - { role: EGI-Foundation.voms-client, tags: \"voms\"}\n      - { role: ansible-role-ui, tags: \"ui\"}\n</code></pre>\n\n<p>License</p>\n\n<p>Apache-2.0</p>\n\n<p>Author Information</p>\n\n<ul>\n\t<li>Pablo Orviz @orviz</li>\n\t<li>Bruce Becker @brucellino</li>\n</ul>",
-    "language": "eng",
-    "title": "EGI-Federation/ansible-role-ui: Ansible Role: UMD user interface (v0.1.0)",
-    "keywords": [
-        "Ansible",
-        "role",
-        "EGI",
-        "grid",
-        "middleware"
-    ],
-    "version": "v0.1.1",
-    "upload_type": "software",
-    "communities": [
-        {
-            "identifier": "egi"
-        }
-    ],
-    "publication_date": "2018-10-02",
-    "creators": [
-        {
-            "affiliation": "EGI Foundation",
-            "name": "Baptiste Grenier",
-            "orcid": "0000-0002-5686-3193"
-        },
-        {
-            "orcid": "0000-0002-6607-7145",
-            "affiliation": "EGI Foundation",
-            "name": "Bruce Becker"
-        },
-        {
-            "orcid": "0000-0002-2473-6405",
-            "name": "Pablo Orviz"
-        }
-    ],
-    "access_right": "open",
-    "related_identifiers": [
-        {
-            "scheme": "url",
+  "license": "Apache-2.0",
+  "description": "<p>User Interface Role</p>\n\n<p>&nbsp;</p>\n\n<p>This role provisions a UMD User Interface. It contains the client libraries of the middleware distribution, for interacting with the various infrastructure services, and is based on the <a href=\"https://galaxy.ansible.com/egi-foundation/voms-client\">VOMS-client role</a>.</p>\n\n<p>Using</p>\n\n<p>This repository is kept under continuous integration. The role has been expressed into the <a href=\"https://quay.io/repository/egi/ui\">UI container</a> during the CI phase and can be immediately re-used, or can be applied to base images of your favourite platform - bare metal, cloud or local vms. A generic <code>griduser</code> has been created for you :smiley:. See the example playbook below.</p>\n\n<p>Docker</p>\n\n<p>Running the user interface in a Docker container can be done interactively, or by starting the container and <code>exec</code>ing commands in it:</p>\n\n<ol>\n\t<li>First pull the container image: <code>docker pull quay.io/egi/ui</code></li>\n\t<li>Don&#39;t forget to mount a volume with your user credentials : <code>-v $HOME/.globus:/home/griduser/.globus</code></li>\n\t<li>Run interactively: <code>docker run -u griduser -ti --rm --name ui -v $HOME/.globus:/home/griduser/.globus quay.io/egi/ui /bin/bash/</code> (enter the container and do gridcloud things)</li>\n\t<li>Run detached: <code>docker run -d -t --rm --name ui quay.io/egi/ui /bin/bash -c &#39;while true ; do sleep 1000 ; done&#39;</code>\n\t<ol>\n\t\t<li>run things in it: <code>docker exec ui voms-proxy-init</code></li>\n\t</ol>\n\t</li>\n</ol>\n\n<p>Requirements</p>\n\n<p>No particular requirements are needed, but a typical playbook will need the <a href=\"https://galaxy.ansible.com/egi-foundation/voms-client\">VOMS-client role</a></p>\n\n<p>Role Variables</p>\n\n<p>See <code>defaults/main.yml</code></p>\n\n<p>Dependencies</p>\n\n<ul>\n\t<li><a href=\"https://galaxy.ansible.com/EGI-Foundation/umd\">EGI-Foundation.umd</a></li>\n\t<li><a href=\"https://galaxy.ansible.com/EGI-Foundation/VOMS-client\">EGI-Fondation.VOMS-client</a></li>\n</ul>\n\n<p>Example Playbook</p>\n\n<pre><code>  - name: Converge\n    hosts: all\n    roles:\n      - { role: EGI-Foundation.umd, release: 4, ca_verification: false, tags: \"umd\" }\n      - { role: EGI-Foundation.voms-client, tags: \"voms\"}\n      - { role: ansible-role-ui, tags: \"ui\"}\n</code></pre>\n\n<p>License</p>\n\n<p>Apache-2.0</p>\n\n<p>Author Information</p>\n\n<ul>\n\t<li>Pablo Orviz @orviz</li>\n\t<li>Bruce Becker @brucellino</li>\n</ul>",
+  "language": "eng",
+  "title": "EGI-Federation/ansible-role-ui: Ansible Role: UMD user interface (v0.1.0)",
+  "keywords": ["Ansible", "role", "EGI", "grid", "middleware"],
+  "version": "v0.1.1",
+  "upload_type": "software",
+  "communities": [
+    {
+      "identifier": "egi"
+    }
+  ],
+  "publication_date": "2018-10-02",
+  "creators": [
+    {
+      "affiliation": "EGI Foundation",
+      "name": "Baptiste Grenier",
+      "orcid": "0000-0002-5686-3193"
+    },
+    {
+      "orcid": "0000-0002-6607-7145",
+      "affiliation": "EGI Foundation",
+      "name": "Bruce Becker"
+    },
+    {
+      "orcid": "0000-0002-2473-6405",
+      "name": "Pablo Orviz"
+    }
+  ],
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "scheme": "url",
 
-            "identifier": "https://github.com/EGI-Federation/ansible-role-ui/tree/v0.1.1",
-            "relation": "isSupplementTo"
-        },
-        {
-            "scheme": "doi",
-            "identifier": "10.5281/zenodo.1442700",
-            "relation": "isVersionOf"
-        }
-    ]
+      "identifier": "https://github.com/EGI-Federation/ansible-role-ui/tree/v0.1.1",
+      "relation": "isSupplementTo"
+    },
+    {
+      "scheme": "doi",
+      "identifier": "10.5281/zenodo.1442700",
+      "relation": "isVersionOf"
+    }
+  ]
 }

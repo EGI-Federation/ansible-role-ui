@@ -5,19 +5,13 @@ galaxy_info:
   company: EGI Foundation
   license: Apache-2.0
   role_name: ui
+  namespace: egi-federation
 
-  min_ansible_version: 2.5
+  min_ansible_version: "2.18"
   platforms:
     - name: EL
       versions:
-        - 6
-        - 7
-  # - name: Debian
-  #   versions:
-  #     - 8
-  #     - 9
-  #     - 10
-
+        - "8"
   galaxy_tags:
     - EGI
     - middleware

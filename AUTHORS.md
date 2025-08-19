@@ -1,6 +1,6 @@
-## Maintainers
+# Maintainers
 
-Baptiste Grenier <baptiste.grenier@egi.eu>
+Baptiste Grenier <baptiste.grenier@egi.eu> @gwarf
 
 ## Original Authors
 
@@ -9,4 +9,4 @@ Baptiste Grenier <baptiste.grenier@egi.eu>
 
 ## Contributors
 
-See https://github.com/EGI-Federation/<REPOSITORY>/graphs/contributors
+See [Contributors](https://github.com/EGI-Federation/ansible-role-ui/graphs/contributors)
